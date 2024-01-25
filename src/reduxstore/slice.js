@@ -40,7 +40,7 @@ export const contactsSlice = createSlice({
     },
     deleteContact: (state, { payload }) => {
       const contacts = state.contactInfo;
-      console.log('del', payload, contacts);
+      
       state.contactInfo = contacts.filter(elm => elm.name !== payload);
       localStorage.setItem('contacts', JSON.stringify(state.contactInfo));
     },
