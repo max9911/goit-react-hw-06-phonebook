@@ -14,7 +14,7 @@ if (storageData && storageData.length > 0) {
   initialState.contactInfo = storageData;
 }
 
-export const contactsSlice = createSlice({
+const contactsSlice = createSlice({
   name: 'contactInfo',
   initialState,
   reducers: {
@@ -40,7 +40,7 @@ export const contactsSlice = createSlice({
     },
     deleteContact: (state, { payload }) => {
       const contacts = state.contactInfo;
-      
+
       state.contactInfo = contacts.filter(elm => elm.name !== payload);
       localStorage.setItem('contacts', JSON.stringify(state.contactInfo));
     },
@@ -50,4 +50,4 @@ export const contactsSlice = createSlice({
 export const { addContact, filterContacts, deleteContact } =
   contactsSlice.actions;
 
-export default contactsSlice.reducer;
+export const contacsR = contactsSlice.reducer;
