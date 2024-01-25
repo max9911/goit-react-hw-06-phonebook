@@ -1,7 +1,9 @@
+import { useSelector } from 'react-redux';
 import css from './contactList.module.css';
 import ContactElem from 'components/contactElem/contactElem';
 
-export default function ContactList({ arr, filter, delBtn }) {
+export default function ContactList({ arr, delBtn }) {
+  const filter = useSelector(state => state.contactsSlice.filterName);
   if (filter) {
     const result = arr.filter(el => {
       const aaa = el.name.toLowerCase();
